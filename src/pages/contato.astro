@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title="Contato"
+  description="Entre em contato e solicite um orçamento para o site da sua empresa."
+>
+  <div class="contato-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>Fale Comigo</h1>
+        <p>Preencha o formulário e entrarei em contato em até 24 horas.</p>
+      </header>
+
+      <div class="contato-layout">
+        <div class="contato-form">
+          <ContactForm />
+        </div>
+
+        <aside class="contato-info">
+          <h3>O que acontece depois?</h3>
+          <ol class="steps-list">
+            <li>
+              <strong>Você envia a mensagem</strong>
+              <span>Conta um pouco sobre seu negócio e o que precisa.</span>
+            </li>
+            <li>
+              <strong>Entro em contato</strong>
+              <span>Em até 24 horas úteis, respondo com mais perguntas ou já um orçamento.</span>
+            </li>
+            <li>
+              <strong>Alinhamos os detalhes</strong>
+              <span>Uma conversa rápida para entender exatamente o que você precisa.</span>
+            </li>
+            <li>
+              <strong>Seu site no ar</strong>
+              <span>Em poucos dias, sua empresa já tem presença profissional na internet.</span>
+            </li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contato-page { padding: var(--space-2xl) 0; }
+
+  .page-header { margin-bottom: var(--space-xl); }
+  .page-header p { color: var(--color-gray); font-size: 1.1rem; }
+
+  .contato-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .contato-info h3 { margin-bottom: var(--space-md); }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    list-style: none;
+    counter-reset: steps;
+    padding: 0;
+  }
+
+  .steps-list li {
+    counter-increment: steps;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-left: 2.5rem;
+    position: relative;
+  }
+
+  .steps-list li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .steps-list strong { font-weight: 700; color: var(--color-dark); }
+  .steps-list span { font-size: 0.9rem; color: var(--color-gray); }
+
+  @media (max-width: 768px) {
+    .contato-layout { grid-template-columns: 1fr; }
+  }
+</style>

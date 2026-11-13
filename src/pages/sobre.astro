@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Sobre"
+  description="Conheça o profissional por trás do blog e saiba como ele pode ajudar sua empresa a crescer na internet."
+>
+  <div class="sobre-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>Sobre</h1>
+      </header>
+
+      <div class="sobre-content">
+        <div class="sobre-text">
+          <h2>Olá! Sou especialista em criação de sites para pequenas empresas.</h2>
+          <p>
+            Ajudo donos de pequenos negócios a conquistarem presença digital com sites profissionais,
+            rápidos e que realmente convertem visitantes em clientes.
+          </p>
+          <p>
+            Sei que você está ocupado cuidando do seu negócio — por isso cuido de toda a parte técnica
+            para que seu site fique no ar sem dor de cabeça.
+          </p>
+
+          <h3>O que você recebe ao contratar</h3>
+          <ul class="services-list">
+            <li>✅ Site profissional e responsivo (funciona em celular)</li>
+            <li>✅ Domínio e hospedagem configurados</li>
+            <li>✅ SEO básico para aparecer no Google</li>
+            <li>✅ Formulário de contato funcionando</li>
+            <li>✅ Suporte após a entrega</li>
+          </ul>
+
+          <a href="/contato" class="btn btn-primary">Solicitar orçamento grátis</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .sobre-page { padding: var(--space-2xl) 0; }
+
+  .page-header { margin-bottom: var(--space-xl); }
+
+  .sobre-content { max-width: var(--max-width-prose); }
+
+  .sobre-text h2 { margin-bottom: var(--space-md); }
+  .sobre-text p { color: var(--color-gray); margin-bottom: var(--space-md); }
+  .sobre-text h3 { margin: var(--space-lg) 0 var(--space-sm); }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .services-list li { font-size: 1rem; color: var(--color-dark); }
+</style>
