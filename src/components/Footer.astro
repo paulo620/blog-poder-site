@@ -1,0 +1,88 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">Poder de um Site</span>
+      <p>Ajudando pequenas empresas a crescerem na internet.</p>
+    </div>
+
+    <nav aria-label="Links do rodapé">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© {year} Poder de um Site. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-xl) var(--space-sm);
+  }
+
+  .footer-brand p {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    margin-top: var(--space-xs);
+  }
+
+  .footer-logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-white);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .footer-links a {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #334155;
+    padding: var(--space-sm);
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+    color: #64748B;
+    text-align: center;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner { flex-direction: column; }
+  }
+</style>
