@@ -1,0 +1,133 @@
+---
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-badge">Blog sobre Marketing Digital</span>
+      <h1>Seu negócio merece ser<br />encontrado na internet</h1>
+      <p class="hero-subtitle">
+        Descubra por que ter um site profissional é o passo mais importante
+        para atrair mais clientes e fazer sua empresa crescer.
+      </p>
+      <div class="hero-actions">
+        <a href="/contato" class="btn btn-primary">Quero um site para meu negócio</a>
+        <a href="/blog" class="btn-link">Ver todos os artigos →</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card">
+        <div class="hero-card-bar"></div>
+        <div class="hero-card-lines">
+          <div class="line line-long"></div>
+          <div class="line line-medium"></div>
+          <div class="line line-short"></div>
+        </div>
+        <div class="hero-card-cta"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #EFF6FF 0%, var(--color-light) 100%);
+    padding: var(--space-2xl) 0;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background-color: #DBEAFE;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-content h1 {
+    margin-bottom: var(--space-md);
+    color: var(--color-dark);
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    max-width: 480px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .btn-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.12);
+    width: 280px;
+  }
+
+  .hero-card-bar {
+    height: 8px;
+    background: var(--color-primary);
+    border-radius: 4px;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-card-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: var(--space-md);
+  }
+
+  .line {
+    height: 10px;
+    background: var(--color-light);
+    border-radius: 4px;
+  }
+
+  .line-long { width: 100%; }
+  .line-medium { width: 75%; }
+  .line-short { width: 50%; }
+
+  .hero-card-cta {
+    height: 36px;
+    background: var(--color-primary);
+    border-radius: 6px;
+    opacity: 0.15;
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+  }
+</style>
