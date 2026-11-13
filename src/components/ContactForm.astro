@@ -1,0 +1,166 @@
+---
+---
+
+<!-- Web3Forms: crie uma conta gratuita em https://web3forms.com e substitua YOUR_ACCESS_KEY_HERE pela sua chave -->
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="contact-form"
+  id="contact-form"
+>
+  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+  <input type="hidden" name="subject" value="Novo contato pelo blog Poder de um Site" />
+  <input type="hidden" name="from_name" value="Blog Poder de um Site" />
+  <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" />
+
+  <div class="form-group">
+    <label for="name">Nome <span aria-hidden="true">*</span></label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Seu nome completo"
+      required
+      autocomplete="name"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email">E-mail <span aria-hidden="true">*</span></label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="seu@email.com"
+      required
+      autocomplete="email"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="message">Mensagem <span aria-hidden="true">*</span></label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="Conta um pouco sobre seu negócio e o que você precisa..."
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-submit">
+    <span class="btn-text">Enviar mensagem</span>
+    <span class="btn-loading" aria-hidden="true">Enviando...</span>
+  </button>
+
+  <div class="form-success" role="alert" aria-live="polite" hidden>
+    ✅ Mensagem enviada! Entrarei em contato em breve.
+  </div>
+
+  <div class="form-error" role="alert" aria-live="polite" hidden>
+    ❌ Erro ao enviar. Tente novamente ou envie um e-mail diretamente.
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const success = form.querySelector('.form-success') as HTMLElement;
+  const error = form.querySelector('.form-error') as HTMLElement;
+  const submitBtn = form.querySelector('.btn-submit') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        form.reset();
+        success.hidden = false;
+        error.hidden = true;
+      } else {
+        throw new Error('Erro no envio');
+      }
+    } catch {
+      error.hidden = false;
+      success.hidden = true;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+    }
+  });
+</script>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 560px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-dark);
+  }
+
+  label span { color: var(--color-primary); }
+
+  input, textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-family: var(--font-base);
+    font-size: 1rem;
+    color: var(--color-dark);
+    background: var(--color-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  textarea { resize: vertical; min-height: 120px; }
+
+  .btn-submit { align-self: flex-start; position: relative; min-width: 180px; }
+
+  .btn-loading { display: none; }
+  .btn-submit.loading .btn-text { display: none; }
+  .btn-submit.loading .btn-loading { display: inline; }
+
+  .form-success, .form-error {
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    font-weight: 600;
+  }
+
+  .form-success { background: #DCFCE7; color: #166534; }
+  .form-error { background: #FEE2E2; color: #991B1B; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+  }
+</style>
