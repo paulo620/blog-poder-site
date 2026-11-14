@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página não encontrada"
+  description="A página que você buscou não existe. Volte para a página inicial."
+>
+  <div class="not-found">
+    <div class="container">
+      <h1>404</h1>
+      <p class="not-found-msg">Ops! Esta página não existe.</p>
+      <p>O endereço que você acessou pode ter sido removido ou está incorreto.</p>
+      <div class="not-found-actions">
+        <a href="/" class="btn btn-primary">Ir para a Home</a>
+        <a href="/blog" class="btn-link">Ver artigos do blog</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .not-found h1 {
+    font-size: 6rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .not-found-msg {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--space-sm);
+  }
+
+  .not-found p:last-of-type {
+    color: var(--color-gray);
+    margin-bottom: var(--space-xl);
+  }
+
+  .not-found-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .btn-link {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+</style>
