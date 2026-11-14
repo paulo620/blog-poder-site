@@ -1,88 +1,94 @@
 ---
 const year = new Date().getFullYear();
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Contato', href: '/contato' },
+];
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div class="footer-brand">
-      <span class="footer-logo">Poder de um Site</span>
-      <p>Ajudando pequenas empresas a crescerem na internet.</p>
-    </div>
+    <a href="/" class="footer-logo" aria-label="Ir para a página inicial">
+      Poder<span class="dot">.</span>site
+    </a>
+
+    <p class="footer-tagline">Ajudando pequenas empresas a crescerem na internet.</p>
 
     <nav aria-label="Links do rodapé">
       <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/sobre">Sobre</a></li>
-        <li><a href="/contato">Contato</a></li>
+        {navLinks.map(link => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
       </ul>
     </nav>
-  </div>
 
-  <div class="footer-bottom">
-    <div class="container">
-      <p>© {year} Poder de um Site. Todos os direitos reservados.</p>
-    </div>
+    <p class="footer-copy">© {year} Poder de um Site. Todos os direitos reservados.</p>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background-color: var(--color-dark);
-    color: var(--color-light);
-    margin-top: var(--space-2xl);
+    margin-top: 80px;
+    padding: 48px 0 32px;
+    background: var(--g-1);
+    backdrop-filter: var(--g-blur);
+    -webkit-backdrop-filter: var(--g-blur);
+    border-top: 1px solid var(--g-border-dim);
   }
 
   .footer-inner {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--space-lg);
-    padding: var(--space-xl) var(--space-sm);
-  }
-
-  .footer-brand p {
-    color: #94A3B8;
-    font-size: 0.9rem;
-    margin-top: var(--space-xs);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
   }
 
   .footer-logo {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--color-white);
+    font-family: var(--f-display);
+    font-weight: var(--fw-extrabold);
+    font-size: 1.25rem;
+    letter-spacing: var(--ls-tight);
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .footer-logo:hover { color: var(--text); }
+
+  .dot { color: var(--c-purple); }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+    color: var(--text-3);
+    max-width: 320px;
   }
 
   .footer-links {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
   }
 
   .footer-links a {
-    color: #94A3B8;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+    font-family: var(--f-display);
+    font-weight: var(--fw-semibold);
+    font-size: 0.875rem;
+    color: var(--text-2);
+    transition: color var(--t-fast);
   }
 
-  .footer-links a:hover {
-    color: var(--color-white);
-    text-decoration: none;
-  }
+  .footer-links a:hover { color: var(--c-teal-fg); }
 
-  .footer-bottom {
-    border-top: 1px solid #334155;
-    padding: var(--space-sm);
-  }
-
-  .footer-bottom p {
-    font-size: 0.85rem;
-    color: #64748B;
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-3);
+    padding-top: 20px;
+    border-top: 1px solid var(--g-border-dim);
+    width: 100%;
     text-align: center;
-    margin: 0;
-  }
-
-  @media (max-width: 640px) {
-    .footer-inner { flex-direction: column; }
   }
 </style>

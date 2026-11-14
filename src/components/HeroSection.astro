@@ -4,27 +4,44 @@
 <section class="hero">
   <div class="container hero-inner">
     <div class="hero-content">
-      <span class="hero-badge">Blog sobre Marketing Digital</span>
-      <h1>Seu negócio merece ser<br />encontrado na internet</h1>
-      <p class="hero-subtitle">
+      <span class="eyebrow">// Marketing Digital</span>
+      <h1 class="hero-title">
+        Seu negócio merece ser<br />
+        <span class="title-accent">encontrado na internet</span>
+      </h1>
+      <p class="hero-lead">
         Descubra por que ter um site profissional é o passo mais importante
         para atrair mais clientes e fazer sua empresa crescer.
       </p>
       <div class="hero-actions">
         <a href="/contato" class="btn btn-primary">Quero um site para meu negócio</a>
-        <a href="/blog" class="btn-link">Ver todos os artigos →</a>
+        <a href="/blog" class="btn btn-ghost">Ver todos os artigos →</a>
       </div>
     </div>
 
     <div class="hero-visual" aria-hidden="true">
-      <div class="hero-card">
-        <div class="hero-card-bar"></div>
-        <div class="hero-card-lines">
-          <div class="line line-long"></div>
-          <div class="line line-medium"></div>
-          <div class="line line-short"></div>
+      <div class="visual-card">
+        <div class="visual-header">
+          <div class="visual-dot" style="background: var(--c-red)"></div>
+          <div class="visual-dot" style="background: var(--c-yellow)"></div>
+          <div class="visual-dot" style="background: var(--c-green)"></div>
         </div>
-        <div class="hero-card-cta"></div>
+        <div class="visual-bar" style="background: var(--cta-gradient)"></div>
+        <div class="visual-lines">
+          <div class="visual-line long"></div>
+          <div class="visual-line medium"></div>
+          <div class="visual-line short"></div>
+        </div>
+        <div class="visual-stats">
+          <div class="stat">
+            <span class="stat-num">+127%</span>
+            <span class="stat-label">Visitas</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+84%</span>
+            <span class="stat-label">Contatos</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -32,111 +49,136 @@
 
 <style>
   .hero {
-    background: linear-gradient(135deg, #EFF6FF 0%, var(--color-light) 100%);
-    padding: var(--space-2xl) 0;
-    overflow: hidden;
-  }
-
-  :global([data-theme="dark"]) .hero {
-    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    padding: 80px 0 64px;
   }
 
   .hero-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
+    gap: 48px;
     align-items: center;
   }
 
-  .hero-badge {
-    display: inline-block;
-    background-color: #DBEAFE;
-    color: var(--color-primary);
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.3rem 0.8rem;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-sm);
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .hero-content h1 {
-    margin-bottom: var(--space-md);
-    color: var(--color-dark);
+  .hero-title {
+    font-family: var(--f-display);
+    font-weight: var(--fw-extrabold);
+    font-size: var(--fs-display);
+    letter-spacing: var(--ls-display);
+    line-height: var(--lh-display);
+    color: var(--text);
   }
 
-  .hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-gray);
+  .title-accent {
+    background: var(--heading-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-lead {
+    font-size: var(--fs-lead);
+    line-height: 1.65;
+    color: var(--text-2);
     max-width: 480px;
-    margin-bottom: var(--space-lg);
-  }
-
-  :global([data-theme="dark"]) .hero-subtitle {
-    color: #CBD5E1;
-  }
-
-  :global([data-theme="dark"]) .hero-badge {
-    background-color: #1E40AF;
-    color: #BFDBFE;
   }
 
   .hero-actions {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: 12px;
     flex-wrap: wrap;
+    padding-top: 4px;
   }
 
-  .btn-link {
-    color: var(--color-primary);
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
+  /* ── Visual decorativo ── */
   .hero-visual {
     display: flex;
     justify-content: center;
   }
 
-  .hero-card {
-    background: var(--color-white);
-    border-radius: 12px;
-    padding: var(--space-lg);
-    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.12);
+  .visual-card {
+    background: var(--g-2);
+    backdrop-filter: var(--g-blur);
+    -webkit-backdrop-filter: var(--g-blur);
+    border: 1px solid var(--g-border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--g-shadow-card);
+    padding: 24px;
     width: 280px;
-  }
-
-  .hero-card-bar {
-    height: 8px;
-    background: var(--color-primary);
-    border-radius: 4px;
-    margin-bottom: var(--space-md);
-  }
-
-  .hero-card-lines {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: var(--space-md);
+    gap: 16px;
   }
 
-  .line {
+  .visual-header {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .visual-dot {
+    width: 10px;
     height: 10px;
-    background: var(--color-light);
-    border-radius: 4px;
+    border-radius: 50%;
+    opacity: 0.8;
   }
 
-  .line-long { width: 100%; }
-  .line-medium { width: 75%; }
-  .line-short { width: 50%; }
+  .visual-bar {
+    height: 8px;
+    border-radius: var(--r-full);
+  }
 
-  .hero-card-cta {
-    height: 36px;
-    background: var(--color-primary);
-    border-radius: 6px;
-    opacity: 0.15;
+  .visual-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .visual-line {
+    height: 8px;
+    border-radius: var(--r-full);
+    background: var(--g-1);
+    border: 1px solid var(--g-border-dim);
+  }
+
+  .long { width: 100%; }
+  .medium { width: 72%; }
+  .short { width: 48%; }
+
+  .visual-stats {
+    display: flex;
+    gap: 16px;
+    padding-top: 4px;
+    border-top: 1px solid var(--g-border-dim);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-num {
+    font-family: var(--f-display);
+    font-weight: var(--fw-extrabold);
+    font-size: 1.3rem;
+    letter-spacing: var(--ls-tight);
+    color: var(--c-teal-fg);
+  }
+
+  .stat-label {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: var(--ls-meta);
+    text-transform: uppercase;
+    color: var(--text-3);
   }
 
   @media (max-width: 768px) {

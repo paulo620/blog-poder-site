@@ -1,0 +1,24 @@
+:root{
+--sp-1:8px; /* @kind spacing */
+--sp-2:16px; /* @kind spacing */
+--sp-3:24px; /* @kind spacing */
+--sp-4:32px; /* @kind spacing */
+--sp-6:48px; /* @kind spacing */
+--sp-8:64px; /* @kind spacing */
+--sp-10:80px; /* @kind spacing */
+--sp-11:88px; /* @kind spacing */
+
+--gutter:clamp(16px,4vw,32px); /* @kind spacing */
+
+--content-max:1600px; /* @kind spacing */
+--container-max:1200px; /* @kind spacing */
+--hero-max:880px; /* @kind spacing */
+--prose-max:760px; /* @kind spacing */
+
+--grid-cell:64px; /* @kind spacing */
+
+--bp-sm:640px; /* @kind spacing */
+--bp-md:768px; /* @kind spacing */
+--bp-lg:1024px; /* @kind spacing */
+
+}

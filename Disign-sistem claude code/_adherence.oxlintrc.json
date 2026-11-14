@@ -1,0 +1,444 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/brand/**",
+              "components/content/**",
+              "components/core/**",
+              "components/navigation/**",
+              "ui_kits/blog/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Sora|Plus Jakarta Sans|JetBrains Mono|Yellowtail))/i]",
+        "message": "Font not provided by the design system. Available: Sora, Plus Jakarta Sans, JetBrains Mono, Yellowtail."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AuroraBackground'] > JSXAttribute > JSXIdentifier[name!=/^(?:fixed|blur|key|ref|className|style|children)$/]",
+        "message": "<AuroraBackground> doesn't accept that prop. Declared props: fixed, blur."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|href|onClick|disabled|children|style|target|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, href, onClick, disabled, children, style, target."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:md|sm)$/]",
+        "message": "<Button> size must be one of 'md' | 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Eyebrow'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|color|style|key|ref|className|style|children)$/]",
+        "message": "<Eyebrow> doesn't accept that prop. Declared props: children, color, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Hero'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|title|titleEm|children|actions|align|style|key|ref|className|style|children)$/]",
+        "message": "<Hero> doesn't accept that prop. Declared props: eyebrow, title, titleEm, children, actions, align, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Hero'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:center|left)$/]",
+        "message": "<Hero> align must be one of 'center' | 'left'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|width|height|strokeWidth|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, width, height, strokeWidth, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute[name.name='name'] > Literal[value!=/^(?:moon|sun|youtube|instagram)$/]",
+        "message": "<Icon> name must be one of 'moon' | 'sun' | 'youtube' | 'instagram'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute > JSXIdentifier[name!=/^(?:size|showText|href|style|key|ref|className|style|children)$/]",
+        "message": "<Logo> doesn't accept that prop. Declared props: size, showText, href, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Logo> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PostCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|description|date|image|imageAlt|href|moreLabel|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<PostCard> doesn't accept that prop. Declared props: title, description, date, image, imageAlt, href, moreLabel, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Prose'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|style|key|ref|className|style|children)$/]",
+        "message": "<Prose> doesn't accept that prop. Declared props: children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|linkLabel|href|onLinkClick|style|key|ref|className|style|children)$/]",
+        "message": "<SectionHeader> doesn't accept that prop. Declared props: title, linkLabel, href, onLinkClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SiteFooter'] > JSXAttribute > JSXIdentifier[name!=/^(?:links|tagline|year|onNavigate|style|key|ref|className|style|children)$/]",
+        "message": "<SiteFooter> doesn't accept that prop. Declared props: links, tagline, year, onNavigate, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SiteHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:links|active|ctaLabel|ctaHref|onNavigate|onCta|compact|sticky|ctaOffset|key|ref|className|style|children)$/]",
+        "message": "<SiteHeader> doesn't accept that prop. Declared props: links, active, ctaLabel, ctaHref, onNavigate, onCta, compact, sticky, ctaOffset."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ThemeToggle'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|defaultValue|onChange|fixed|style|key|ref|className|style|children)$/]",
+        "message": "<ThemeToggle> doesn't accept that prop. Declared props: value, defaultValue, onChange, fixed, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ThemeToggle'] > JSXAttribute[name.name='value'] > Literal[value!=/^(?:dark|light)$/]",
+        "message": "<ThemeToggle> value must be one of 'dark' | 'light'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ThemeToggle'] > JSXAttribute[name.name='defaultValue'] > Literal[value!=/^(?:dark|light)$/]",
+        "message": "<ThemeToggle> defaultValue must be one of 'dark' | 'light'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "AuroraBackground": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Eyebrow": {
+        "replaces": []
+      },
+      "Hero": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Logo": {
+        "replaces": []
+      },
+      "PostCard": {
+        "replaces": []
+      },
+      "Prose": {
+        "replaces": []
+      },
+      "SectionHeader": {
+        "replaces": []
+      },
+      "SiteFooter": {
+        "replaces": []
+      },
+      "SiteHeader": {
+        "replaces": []
+      },
+      "ThemeToggle": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent-marker",
+      "--accent-quote",
+      "--bg",
+      "--bg-2",
+      "--bg-body",
+      "--border",
+      "--border-glass",
+      "--border-glass-strong",
+      "--border-sub",
+      "--bp-lg",
+      "--bp-md",
+      "--bp-sm",
+      "--c-black",
+      "--c-blue",
+      "--c-blue-light",
+      "--c-cream",
+      "--c-green",
+      "--c-green-bright",
+      "--c-green-cta",
+      "--c-green-cta-fg",
+      "--c-green-fg",
+      "--c-purple",
+      "--c-purple-fg",
+      "--c-purple-light",
+      "--c-red",
+      "--c-teal",
+      "--c-teal-bright",
+      "--c-teal-fg",
+      "--c-yellow",
+      "--c-yellow-em",
+      "--c-yellow-fg",
+      "--container-max",
+      "--content-max",
+      "--cta-gradient",
+      "--dot-color",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-out-expo",
+      "--ease-standard",
+      "--f-body",
+      "--f-display",
+      "--f-mono",
+      "--f-script",
+      "--focus-ring",
+      "--fs-body",
+      "--fs-caption",
+      "--fs-card-title",
+      "--fs-cta-sm",
+      "--fs-display",
+      "--fs-eyebrow",
+      "--fs-h2",
+      "--fs-lead",
+      "--fs-meta",
+      "--fs-nav",
+      "--fs-prose",
+      "--fs-prose-h2",
+      "--fs-prose-h3",
+      "--fs-small",
+      "--fw-bold",
+      "--fw-extrabold",
+      "--fw-regular",
+      "--fw-semibold",
+      "--g-1",
+      "--g-2",
+      "--g-3",
+      "--g-blur",
+      "--g-blur-heavy",
+      "--g-border",
+      "--g-border-dim",
+      "--g-border-strong",
+      "--g-shadow",
+      "--g-shadow-card",
+      "--g-shadow-hover",
+      "--g-specular",
+      "--grid-cell",
+      "--grid-line",
+      "--gutter",
+      "--heading-gradient",
+      "--heading-gradient-shadow",
+      "--hero-max",
+      "--ink-on-cta",
+      "--lh-body",
+      "--lh-card-title",
+      "--lh-display",
+      "--lh-heading",
+      "--lh-lead",
+      "--lh-prose",
+      "--ls-body",
+      "--ls-display",
+      "--ls-eyebrow",
+      "--ls-heading",
+      "--ls-meta",
+      "--ls-nav",
+      "--ls-tight",
+      "--page-bg",
+      "--prose-max",
+      "--r-full",
+      "--r-lg",
+      "--r-md",
+      "--r-sm",
+      "--r-xs",
+      "--section-a-bg",
+      "--section-b-bg",
+      "--section-fg",
+      "--shadow-cta",
+      "--shadow-toggle",
+      "--sp-1",
+      "--sp-10",
+      "--sp-11",
+      "--sp-2",
+      "--sp-3",
+      "--sp-4",
+      "--sp-6",
+      "--sp-8",
+      "--surface",
+      "--surface-2",
+      "--surface-glass",
+      "--surface-glass-strong",
+      "--surface-glass-subtle",
+      "--t-fast",
+      "--t-slow",
+      "--text",
+      "--text-2",
+      "--text-3",
+      "--text-body",
+      "--text-eyebrow",
+      "--text-link",
+      "--text-link-hover",
+      "--text-muted",
+      "--text-on-cta",
+      "--text-subtle"
+    ],
+    "tokenKinds": {
+      "--c-blue": "color",
+      "--c-blue-light": "color",
+      "--c-purple": "color",
+      "--c-purple-light": "color",
+      "--c-green-cta": "color",
+      "--c-green": "color",
+      "--c-green-bright": "color",
+      "--c-teal": "color",
+      "--c-teal-bright": "color",
+      "--c-yellow": "color",
+      "--c-yellow-em": "color",
+      "--c-red": "color",
+      "--c-cream": "color",
+      "--c-black": "color",
+      "--ink-on-cta": "color",
+      "--bg": "color",
+      "--bg-2": "color",
+      "--bg-body": "color",
+      "--surface": "color",
+      "--surface-2": "color",
+      "--text": "font",
+      "--text-2": "font",
+      "--text-3": "font",
+      "--border": "color",
+      "--border-sub": "color",
+      "--g-1": "color",
+      "--g-2": "color",
+      "--g-3": "color",
+      "--g-border": "color",
+      "--g-border-dim": "color",
+      "--g-border-strong": "color",
+      "--section-a-bg": "color",
+      "--section-b-bg": "color",
+      "--section-fg": "color",
+      "--dot-color": "color",
+      "--grid-line": "color",
+      "--c-teal-fg": "color",
+      "--c-green-cta-fg": "color",
+      "--c-green-fg": "color",
+      "--c-yellow-fg": "color",
+      "--c-purple-fg": "color",
+      "--heading-gradient": "color",
+      "--heading-gradient-shadow": "shadow",
+      "--cta-gradient": "color",
+      "--page-bg": "color",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-subtle": "font",
+      "--text-link": "font",
+      "--text-link-hover": "font",
+      "--text-eyebrow": "font",
+      "--text-on-cta": "font",
+      "--surface-glass": "color",
+      "--surface-glass-subtle": "color",
+      "--surface-glass-strong": "color",
+      "--border-glass": "color",
+      "--border-glass-strong": "color",
+      "--accent-quote": "color",
+      "--accent-marker": "color",
+      "--focus-ring": "color",
+      "--f-display": "font",
+      "--f-body": "font",
+      "--f-mono": "font",
+      "--f-script": "font",
+      "--fs-display": "font",
+      "--fs-h2": "font",
+      "--fs-prose-h2": "font",
+      "--fs-prose-h3": "font",
+      "--fs-card-title": "font",
+      "--fs-lead": "font",
+      "--fs-prose": "font",
+      "--fs-body": "font",
+      "--fs-small": "font",
+      "--fs-nav": "font",
+      "--fs-cta-sm": "font",
+      "--fs-caption": "font",
+      "--fs-meta": "font",
+      "--fs-eyebrow": "font",
+      "--lh-display": "font",
+      "--lh-heading": "font",
+      "--lh-card-title": "font",
+      "--lh-body": "font",
+      "--lh-prose": "font",
+      "--lh-lead": "font",
+      "--ls-display": "font",
+      "--ls-heading": "font",
+      "--ls-tight": "font",
+      "--ls-body": "font",
+      "--ls-nav": "font",
+      "--ls-meta": "font",
+      "--ls-eyebrow": "font",
+      "--fw-regular": "font",
+      "--fw-semibold": "font",
+      "--fw-bold": "font",
+      "--fw-extrabold": "font",
+      "--sp-1": "spacing",
+      "--sp-2": "spacing",
+      "--sp-3": "spacing",
+      "--sp-4": "spacing",
+      "--sp-6": "spacing",
+      "--sp-8": "spacing",
+      "--sp-10": "spacing",
+      "--sp-11": "spacing",
+      "--gutter": "spacing",
+      "--content-max": "spacing",
+      "--container-max": "spacing",
+      "--hero-max": "spacing",
+      "--prose-max": "spacing",
+      "--grid-cell": "spacing",
+      "--bp-sm": "spacing",
+      "--bp-md": "spacing",
+      "--bp-lg": "spacing",
+      "--r-xs": "spacing",
+      "--r-sm": "spacing",
+      "--r-md": "spacing",
+      "--r-lg": "spacing",
+      "--r-full": "spacing",
+      "--g-blur": "other",
+      "--g-blur-heavy": "other",
+      "--g-shadow": "shadow",
+      "--g-shadow-card": "shadow",
+      "--g-shadow-hover": "shadow",
+      "--shadow-cta": "shadow",
+      "--shadow-toggle": "shadow",
+      "--g-specular": "color",
+      "--t-fast": "other",
+      "--t-slow": "other",
+      "--ease-standard": "other",
+      "--ease-out-expo": "other",
+      "--dur-fast": "other",
+      "--dur-slow": "other"
+    },
+    "fontFamilies": [
+      "JetBrains Mono",
+      "Plus Jakarta Sans",
+      "Sora",
+      "Yellowtail"
+    ]
+  }
+}
