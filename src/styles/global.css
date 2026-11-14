@@ -27,6 +27,15 @@
   --max-width-prose: 720px;
 }
 
+/* Dark mode */
+[data-theme="dark"] {
+  --color-dark: #F1F5F9;
+  --color-gray: #94A3B8;
+  --color-light: #1E293B;
+  --color-white: #0F172A;
+  --color-border: #334155;
+}
+
 /* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -45,6 +54,7 @@ body {
   line-height: var(--line-height-base);
   color: var(--color-dark);
   background-color: var(--color-white);
+  transition: background-color 0.2s, color 0.2s;
 }
 
 img {

@@ -34,18 +34,42 @@ const currentPath = Astro.url.pathname;
             </a>
           </li>
         ))}
+        <li>
+          <button class="theme-toggle" aria-label="Alternar modo escuro" id="theme-toggle">
+            <span class="icon-sun" aria-hidden="true">☀️</span>
+            <span class="icon-moon" aria-hidden="true">🌙</span>
+          </button>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
 <script>
+  // Menu mobile
   const toggle = document.querySelector('.menu-toggle') as HTMLButtonElement;
   const nav = document.querySelector('#nav-menu') as HTMLElement;
-
   toggle?.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('nav--open');
     toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Dark mode
+  const html = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle') as HTMLButtonElement;
+
+  const saved = (() => { try { return localStorage.getItem('theme'); } catch { return null; } })();
+  if (saved === 'dark') html.setAttribute('data-theme', 'dark');
+
+  themeBtn?.addEventListener('click', () => {
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      html.removeAttribute('data-theme');
+      try { localStorage.setItem('theme', 'light'); } catch {}
+    } else {
+      html.setAttribute('data-theme', 'dark');
+      try { localStorage.setItem('theme', 'dark'); } catch {}
+    }
   });
 </script>
 
@@ -114,6 +138,29 @@ const currentPath = Astro.url.pathname;
     border-bottom-color: var(--color-primary);
     text-decoration: none;
   }
+
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.2s, background-color 0.2s;
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--color-light);
+    border-color: var(--color-primary);
+  }
+
+  .icon-moon { display: none; }
+
+  :global([data-theme="dark"]) .icon-sun { display: none; }
+  :global([data-theme="dark"]) .icon-moon { display: inline; }
 
   .menu-toggle {
     display: none;
