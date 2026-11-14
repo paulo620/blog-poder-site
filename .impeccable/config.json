@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles/global.css"
+        ],
+        "createdAt": "2026-11-14T00:01:41.486Z",
+        "reason": "blockquote left border: established typographic convention, not a card side-tab UI pattern"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-14T00:07:13.205Z",
+        "reason": "font replaced with Outfit per user request 2026-11-13"
+      }
+    ]
+  }
+}
