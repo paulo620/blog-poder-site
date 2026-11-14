@@ -9,18 +9,20 @@ import ContactForm from '../components/ContactForm.astro';
 >
   <div class="contato-page">
     <div class="container">
+
       <header class="page-header">
-        <h1>Fale Comigo</h1>
-        <p>Preencha o formulário e entrarei em contato em até 24 horas.</p>
+        <span class="eyebrow">// Contato</span>
+        <h1 class="page-title">Fale Comigo</h1>
+        <p class="page-desc">Preencha o formulário e entrarei em contato em até 24 horas.</p>
       </header>
 
       <div class="contato-layout">
-        <div class="contato-form">
+        <div class="form-card">
           <ContactForm />
         </div>
 
         <aside class="contato-info">
-          <h3>O que acontece depois?</h3>
+          <h3 class="info-title">O que acontece depois?</h3>
           <ol class="steps-list">
             <li>
               <strong>Você envia a mensagem</strong>
@@ -41,29 +43,77 @@ import ContactForm from '../components/ContactForm.astro';
           </ol>
         </aside>
       </div>
+
     </div>
   </div>
 </BaseLayout>
 
 <style>
-  .contato-page { padding: var(--space-2xl) 0; }
+  .contato-page {
+    padding: 56px 0 80px;
+  }
 
-  .page-header { margin-bottom: var(--space-xl); }
-  .page-header p { color: var(--color-gray); font-size: 1.1rem; }
+  .page-header {
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
 
+  .page-title {
+    font-family: var(--f-display);
+    font-weight: var(--fw-extrabold);
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
+    line-height: 1.05;
+  }
+
+  .page-desc {
+    font-size: 1.05rem;
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+
+  /* ── Layout dois colunas ── */
   .contato-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    gap: 40px;
     align-items: start;
   }
 
-  .contato-info h3 { margin-bottom: var(--space-md); }
+  /* ── Card do formulário ── */
+  .form-card {
+    background: var(--g-2);
+    backdrop-filter: var(--g-blur);
+    -webkit-backdrop-filter: var(--g-blur);
+    border: 1px solid var(--g-border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--g-shadow-card);
+    padding: 36px 32px;
+  }
+
+  /* ── Aside de passos ── */
+  .contato-info {
+    padding-top: 8px;
+  }
+
+  .info-title {
+    font-family: var(--f-display);
+    font-weight: var(--fw-bold);
+    font-size: 1.25rem;
+    letter-spacing: var(--ls-tight);
+    color: var(--text);
+    margin-bottom: 28px;
+  }
 
   .steps-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: 24px;
     list-style: none;
     counter-reset: steps;
     padding: 0;
@@ -73,8 +123,8 @@ import ContactForm from '../components/ContactForm.astro';
     counter-increment: steps;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    padding-left: 2.5rem;
+    gap: 4px;
+    padding-left: 52px;
     position: relative;
   }
 
@@ -83,22 +133,41 @@ import ContactForm from '../components/ContactForm.astro';
     position: absolute;
     left: 0;
     top: 0;
-    width: 1.75rem;
-    height: 1.75rem;
-    background: var(--color-primary);
-    color: white;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: var(--g-2);
+    border: 1px solid var(--g-border);
+    color: var(--c-teal-fg);
+    border-radius: var(--r-full);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-family: var(--f-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
   }
 
-  .steps-list strong { font-weight: 700; color: var(--color-dark); }
-  .steps-list span { font-size: 0.9rem; color: var(--color-gray); }
+  .steps-list strong {
+    font-family: var(--f-display);
+    font-weight: var(--fw-bold);
+    font-size: 0.95rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .steps-list span {
+    font-size: 0.875rem;
+    color: var(--text-2);
+    line-height: 1.55;
+  }
 
   @media (max-width: 768px) {
-    .contato-layout { grid-template-columns: 1fr; }
+    .contato-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .form-card {
+      padding: 24px 20px;
+    }
   }
 </style>

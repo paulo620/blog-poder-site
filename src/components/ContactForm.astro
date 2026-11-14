@@ -9,12 +9,12 @@
   id="contact-form"
 >
   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-  <input type="hidden" name="subject" value="Novo contato pelo blog Poder de um Site" />
-  <input type="hidden" name="from_name" value="Blog Poder de um Site" />
+  <input type="hidden" name="subject" value="Novo contato pelo blog O poder de um site" />
+  <input type="hidden" name="from_name" value="Blog O poder de um site" />
   <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" />
 
   <div class="form-group">
-    <label for="name">Nome <span aria-hidden="true">*</span></label>
+    <label for="name">Nome <span class="required" aria-hidden="true">*</span></label>
     <input
       type="text"
       id="name"
@@ -26,7 +26,7 @@
   </div>
 
   <div class="form-group">
-    <label for="email">E-mail <span aria-hidden="true">*</span></label>
+    <label for="email">E-mail <span class="required" aria-hidden="true">*</span></label>
     <input
       type="email"
       id="email"
@@ -38,7 +38,7 @@
   </div>
 
   <div class="form-group">
-    <label for="message">Mensagem <span aria-hidden="true">*</span></label>
+    <label for="message">Mensagem <span class="required" aria-hidden="true">*</span></label>
     <textarea
       id="message"
       name="message"
@@ -54,11 +54,11 @@
   </button>
 
   <div class="form-success" role="alert" aria-live="polite" hidden>
-    ✅ Mensagem enviada! Entrarei em contato em breve.
+    Mensagem enviada! Entrarei em contato em breve.
   </div>
 
   <div class="form-error" role="alert" aria-live="polite" hidden>
-    ❌ Erro ao enviar. Tente novamente ou envie um e-mail diretamente.
+    Erro ao enviar. Tente novamente ou envie um e-mail diretamente.
   </div>
 </form>
 
@@ -103,58 +103,84 @@
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
-    max-width: 560px;
+    gap: 20px;
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 8px;
   }
 
   label {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--color-dark);
+    font-family: var(--f-display);
+    font-weight: var(--fw-semibold);
+    font-size: 0.875rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
   }
 
-  label span { color: var(--color-primary); }
+  .required { color: var(--c-teal-fg); }
 
   input, textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    font-family: var(--font-base);
+    padding: 12px 16px;
+    border: 1.5px solid var(--g-border);
+    border-radius: var(--r-md);
+    font-family: var(--f-body);
     font-size: 1rem;
-    color: var(--color-dark);
-    background: var(--color-white);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    color: var(--text);
+    background: var(--g-1);
+    backdrop-filter: var(--g-blur);
+    -webkit-backdrop-filter: var(--g-blur);
+    transition: border-color var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
     width: 100%;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--text-3);
+  }
+
+  input:hover, textarea:hover {
+    border-color: var(--g-border-strong);
+    background: var(--g-2);
   }
 
   input:focus, textarea:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: var(--c-teal-fg);
+    box-shadow: 0 0 0 3px rgba(0, 229, 204, 0.12);
+    background: var(--g-2);
   }
 
-  textarea { resize: vertical; min-height: 120px; }
+  textarea {
+    resize: vertical;
+    min-height: 130px;
+    line-height: var(--lh-body);
+  }
 
-  .btn-submit { align-self: flex-start; position: relative; min-width: 180px; }
+  .btn-submit { align-self: flex-start; min-width: 180px; position: relative; }
 
   .btn-loading { display: none; }
   .btn-submit.loading .btn-text { display: none; }
   .btn-submit.loading .btn-loading { display: inline; }
 
-  .form-success, .form-error {
-    padding: var(--space-sm);
-    border-radius: var(--radius);
-    font-weight: 600;
+  .form-success {
+    padding: 14px 18px;
+    border-radius: var(--r-md);
+    font-weight: var(--fw-semibold);
+    background: rgba(99, 208, 89, 0.12);
+    border: 1px solid rgba(99, 208, 89, 0.3);
+    color: var(--c-green-fg);
   }
 
-  .form-success { background: #DCFCE7; color: #166534; }
-  .form-error { background: #FEE2E2; color: #991B1B; }
+  .form-error {
+    padding: 14px 18px;
+    border-radius: var(--r-md);
+    font-weight: var(--fw-semibold);
+    background: rgba(248, 79, 46, 0.1);
+    border: 1px solid rgba(248, 79, 46, 0.25);
+    color: var(--c-red);
+  }
 
   .sr-only {
     position: absolute;

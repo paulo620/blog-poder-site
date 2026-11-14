@@ -8,13 +8,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <div class="sobre-page">
     <div class="container">
-      <header class="page-header">
-        <h1>Sobre</h1>
-      </header>
+
+      <div class="profile-block">
+        <div class="photo-wrap">
+          <img
+            src="/20250803_152522.jpg"
+            alt="Foto do autor"
+            class="profile-photo"
+            loading="eager"
+          />
+        </div>
+        <div class="profile-meta">
+          <span class="eyebrow">// Sobre mim</span>
+          <h1 class="profile-name">Paulo Silva</h1>
+          <p class="profile-role">Especialista em criação de sites para pequenas empresas</p>
+        </div>
+      </div>
 
       <div class="sobre-content">
         <div class="sobre-text">
-          <h2>Olá! Sou especialista em criação de sites para pequenas empresas.</h2>
+          <h2>Olá! Ajudo pequenas empresas a conquistarem presença digital.</h2>
           <p>
             Ajudo donos de pequenos negócios a conquistarem presença digital com sites profissionais,
             rápidos e que realmente convertem visitantes em clientes.
@@ -26,37 +39,155 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <h3>O que você recebe ao contratar</h3>
           <ul class="services-list">
-            <li>✅ Site profissional e responsivo (funciona em celular)</li>
-            <li>✅ Domínio e hospedagem configurados</li>
-            <li>✅ SEO básico para aparecer no Google</li>
-            <li>✅ Formulário de contato funcionando</li>
-            <li>✅ Suporte após a entrega</li>
+            <li>Site profissional e responsivo (funciona em celular)</li>
+            <li>Domínio e hospedagem configurados</li>
+            <li>SEO básico para aparecer no Google</li>
+            <li>Formulário de contato funcionando</li>
+            <li>Suporte após a entrega</li>
           </ul>
 
           <a href="/contato" class="btn btn-primary">Solicitar orçamento grátis</a>
         </div>
       </div>
+
     </div>
   </div>
 </BaseLayout>
 
 <style>
-  .sobre-page { padding: var(--space-2xl) 0; }
+  .sobre-page {
+    padding: 56px 0 80px;
+  }
 
-  .page-header { margin-bottom: var(--space-xl); }
+  /* ── Bloco de perfil ── */
+  .profile-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    margin-bottom: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--g-border-dim);
+  }
 
-  .sobre-content { max-width: var(--max-width-prose); }
+  .photo-wrap {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    border-radius: var(--r-full);
+    overflow: hidden;
+    border: 3px solid var(--g-border);
+    box-shadow: var(--g-shadow-card);
+    background: var(--g-1);
+  }
 
-  .sobre-text h2 { margin-bottom: var(--space-md); }
-  .sobre-text p { color: var(--color-gray); margin-bottom: var(--space-md); }
-  .sobre-text h3 { margin: var(--space-lg) 0 var(--space-sm); }
+  .profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 50%;
+    display: block;
+  }
+
+  .profile-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .profile-name {
+    font-family: var(--f-display);
+    font-weight: var(--fw-extrabold);
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
+    line-height: 1.05;
+  }
+
+  .profile-role {
+    font-family: var(--f-body);
+    font-size: 1.05rem;
+    color: var(--text-2);
+    max-width: 400px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ── Conteúdo ── */
+  .sobre-content {
+    max-width: var(--prose-max);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .sobre-text h2 {
+    font-family: var(--f-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    letter-spacing: var(--ls-heading);
+    color: var(--text);
+    margin-bottom: 24px;
+    line-height: var(--lh-heading);
+  }
+
+  .sobre-text p {
+    font-size: var(--fs-prose);
+    color: var(--text-2);
+    line-height: var(--lh-prose);
+    margin-bottom: 20px;
+  }
+
+  .sobre-text h3 {
+    font-family: var(--f-display);
+    font-weight: var(--fw-bold);
+    font-size: 1.25rem;
+    letter-spacing: var(--ls-tight);
+    color: var(--text);
+    margin: 40px 0 16px;
+  }
 
   .services-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: var(--space-lg);
+    gap: 12px;
+    margin-bottom: 40px;
+    padding: 0;
+    text-align: left;
   }
 
-  .services-list li { font-size: 1rem; color: var(--color-dark); }
+  .services-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--text);
+    padding: 14px 18px;
+    background: var(--g-1);
+    border: 1px solid var(--g-border-dim);
+    border-radius: var(--r-md);
+  }
+
+  .services-list li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--c-teal-fg);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .profile-block {
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .photo-wrap {
+      width: 140px;
+      height: 140px;
+    }
+  }
 </style>

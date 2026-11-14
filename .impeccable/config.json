@@ -17,6 +17,15 @@
         "value": "inter",
         "createdAt": "2026-11-14T00:07:13.205Z",
         "reason": "font replaced with Outfit per user request 2026-11-13"
+      },
+      {
+        "rule": "overused-font",
+        "value": "plus jakarta sans",
+        "files": [
+          "blog-poder-site/src/styles/global.css"
+        ],
+        "createdAt": "2026-11-14T02:51:58.843Z",
+        "reason": "Plus Jakarta Sans is the established body font of the ibe.IA design system — sourced from blog.ibe.ia.br tokens, not an ad-hoc AI choice"
       }
     ]
   }
