@@ -37,6 +37,10 @@
     overflow: hidden;
   }
 
+  :global([data-theme="dark"]) .hero {
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  }
+
   .hero-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -67,6 +71,15 @@
     color: var(--color-gray);
     max-width: 480px;
     margin-bottom: var(--space-lg);
+  }
+
+  :global([data-theme="dark"]) .hero-subtitle {
+    color: #CBD5E1;
+  }
+
+  :global([data-theme="dark"]) .hero-badge {
+    background-color: #1E40AF;
+    color: #BFDBFE;
   }
 
   .hero-actions {
